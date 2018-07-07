@@ -168,9 +168,9 @@
 	function generateqr(table) {
 
 		if (table == 'all') {
-			window.location = "http://localhost:8000/admingenqr/"+table;
+			window.location = "/admingenqr/"+table;
 		}else{
-			window.location = "http://localhost:8000/admingenqr/"+table;
+			window.location = "/admingenqr/"+table;
 		}
 
 		
