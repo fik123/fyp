@@ -39,6 +39,7 @@ Route::get('admingenqr/{table}','AdminController@generateqr')->name('admin.genqr
 // customer routing
 Route::get('customer/main','CustomerController@main')->name('customer.main');
 Route::get('customer/option','CustomerController@option')->name('customer.option');
+Route::get('customer/{orderno}','CustomerController@orders')->name('customer.order');
 
 // kitchen routing
 Route::get('kitchen/main','KitchenController@main')->name('kitchen.main');
