@@ -1,0 +1,292 @@
+@charset "utf-8";
+/*
+Template Name: The Modernist
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+File: Layout CSS
+*/
+
+@import url("framework.css");
+@import url("slider.css");
+
+
+/* Rows
+---------------------------------------------------------------------------------------------------------------*/
+.row0, .row0 a{}
+.row1{border-top:5px solid;}
+.row2, .row2 a{}
+.row3{border-bottom:1px solid;}
+.row4{border-top:1px solid;}
+
+
+/* Header
+---------------------------------------------------------------------------------------------------------------*/
+#header{padding:40px 0;}
+#header::after{display:block; visibility:hidden; height:0; clear:both; content:"";}
+
+#header #logo{float:left;}
+#header #logo h1, #header #logo p{font-weight:normal; font-style:normal; text-transform:none;}
+#header #logo h1{font-size:28px; line-height:22px;}
+#header #logo p{margin:0; padding:0; font-size:11px;}
+
+
+/* Content Area
+---------------------------------------------------------------------------------------------------------------*/
+#container{padding:40px 0; line-height:1.6em;}
+#container h1, #container h2, #container h3, #container h4, #container h5, #container h6{margin-bottom:20px;}
+#container section{display:block; width:100%; margin:0 0 40px 0; padding:0;}
+#container .last{margin:0;}
+#container .more{text-align:right;}
+
+.spacer{display:block; padding:20px;}
+
+/* Content */
+#content{}
+
+/* Comments */
+#comments ul{margin:0 0 40px 0; padding:0; list-style:none;}
+#comments li.comment_odd, #comments li.comment_even{margin:0 0 10px 0; padding:15px; list-style:none;}
+#comments article, #comments header{display:block; width:100%;}
+#comments figure{float:right; margin:0 0 10px 10px; padding:3px; text-align:center;}
+#comments figure img{float:inherit;}
+#comments header address{font-weight:bold;}
+#comments header time{font-size:smaller;}
+#comments article section{margin:0; padding:0;}
+#comments article section p{margin:10px 5px 10px 0; padding:0;}
+
+/* Right Column */
+.sidebar{}
+.sidebar h2{padding-bottom:8px; font-size:16px; text-transform:uppercase; text-align:right;}
+.sidebar .sdb_holder{margin-bottom:50px;}
+.sidebar .sdb_holder:last-child{margin-bottom:0;}
+
+
+/* Footer
+---------------------------------------------------------------------------------------------------------------*/
+#footer{padding:30px 0; font-size:12px; line-height:1.6em;}
+#footer::after{display:block; visibility:hidden; height:0; clear:both; content:"";}
+
+#footer h2.title{margin-bottom:30px; text-transform:none;}
+
+/* Blogposts */
+#footer article header, #footer article address, #footer article time, #footer article p{margin:0; padding:0;}
+#footer article p{margin-top:10px;}
+#footer article .header h2{font-size:14px; font-weight:bold; text-transform:none;}
+#footer article address, #footer article time{font-size:10px; font-style:normal;}
+
+/* Quick Links */
+#footer nav ul li{margin:10px 0 0 0; padding:0 0 10px 0;}
+#footer nav ul li:first-child, #footer nav ul li.first{margin-top:0;}
+#footer nav ul li a{padding:0 0 0 10px; background-position:left center; background-repeat:no-repeat;}
+
+
+/* Copyright
+---------------------------------------------------------------------------------------------------------------*/
+#copyright{padding:20px 0;}
+#copyright p{margin:0; padding: 0;}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+/* Navigation
+---------------------------------------------------------------------------------------------------------------*/
+
+nav ul{margin:0; padding:0; list-style:none;}
+
+/* Top Navigation */
+#header nav{display:block; float:right; margin:0; padding:0; clear:right;}
+#header nav ul{}
+#header nav ul li{display:inline-block; margin-left:10px; text-transform:uppercase;}
+#header nav ul li:first-child{margin-left:0;}
+#header nav ul li li{margin:0; padding:0; border:none; text-align:left; font-style:normal;}
+#header nav ul li li:first-child{margin:0;}
+#header nav ul li a:link, #header nav ul li a:visited, #header nav ul li a:hover{display:block; margin:0; padding:10px 15px;}
+#header nav ul li a:hover, #header nav ul li.active a{}
+#header nav ul li ul li a:link, #header nav ul li ul li a:visited{float:none; width:150px; margin:0; padding:7px 10px; text-transform:none; font-weight:normal;}
+#header nav ul li ul li a:hover{}
+#header nav ul ul{z-index:9999; position:absolute; left:-999em; height:auto; width:170px; padding:0;}
+#header nav ul ul a{width:140px;}
+#header nav ul li:hover ul{left:auto;}
+#header nav ul li:hover{position:static;}
+
+/* Right Column Navigation */
+.sidebar nav{display:block; width:100%; margin-bottom:30px;}
+.sidebar nav ul{margin:0; padding:0; list-style:none;}
+.sidebar nav li{margin:0; padding:0;}
+.sidebar nav ul ul, .sidebar nav ul ul ul, .sidebar nav ul ul ul ul, .sidebar nav ul ul ul ul ul{border-top:none; padding-top:0;}
+.sidebar nav a{display:block; margin:0; padding:5px 10px 5px 20px; color:#979797; background-position:10px center; background-repeat:no-repeat; text-decoration:none;}
+.sidebar nav a:hover{}
+.sidebar nav ul ul a, .sidebar nav ul ul ul a, .sidebar nav ul ul ul ul a, .sidebar nav ul ul ul ul ul a{background-repeat:no-repeat;}
+.sidebar nav ul ul a{padding-left:40px; background-position:30px center;}
+.sidebar nav ul ul ul a{padding-left:50px; background-position:40px center;}
+.sidebar nav ul ul ul ul a{padding-left:60px; background-position:50px center;}
+.sidebar nav ul ul ul ul ul a{padding-left:70px; background-position:60px center;}
+
+
+/* Forms
+---------------------------------------------------------------------------------------------------------------*/
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+input, textarea, select{resize:none; outline:none; font-size:12px; font-family:Georgia,"Times New Roman",Times,serif;}
+
+#comments form{display:block; width:100%;}
+#comments form input{width:170px; padding:2px; margin:5px 5px 0 0;}
+#comments form textarea{width:98%; padding:2px; overflow:auto;}
+#comments form p{margin:5px 0;}
+#comments form #submit, #comments form #reset{margin:0; padding:5px; cursor:pointer;}
+
+#footer label{display:none;}
+#footer input, #footer textarea{display:block; width:205px; margin:0 0 10px 0; padding:10px; border:none;}
+#footer textarea{height:90px; overflow:auto;}
+#footer button{padding:8px; font-size:13px; font-weight:bold; text-transform:uppercase; border:none; cursor:pointer;}
+
+
+/* Tables
+---------------------------------------------------------------------------------------------------------------*/
+table{width:100%; border-collapse:collapse; table-layout:auto; vertical-align:top; margin-bottom:15px;}
+table thead th{border-collapse:collapse; text-align:center; table-layout:auto; vertical-align:middle;}
+table tbody td{vertical-align:top; border-collapse:collapse;}
+table thead th, table tbody td{padding:5px; border-collapse:collapse;}
+table tbody tr.light{}
+table tbody tr.dark{}
+
+
+/* Gallery
+---------------------------------------------------------------------------------------------------------------*/
+#showcase{display:block; width:100%;}
+#showcase h2{display:block; position:relative; width:100%; margin-bottom:45px; text-align:center; text-transform:uppercase; font-size:32px;}
+#showcase h2::before{display:inline-block; position:absolute; top:50%; left:0; width:100%; content:""; z-index:-1;}
+#showcase h2 span{padding:5px 15px;}
+
+#showcase ul{margin:0; padding:0; list-style-type:none;}
+#showcase ul li{display:block; position:relative; float:left; width:300px; margin:0 0 30px 30px;}
+#showcase ul li:first-child, #showcase ul li.first{margin-left:0;}
+#showcase ul li figure{}
+#showcase ul li a{display:block; font-size:14px;}
+#showcase ul li a strong{display:block; position:absolute; bottom:5px; left:5px; width:270px; margin:0; padding:5px 10px; text-align:center; font-weight:normal; text-transform:uppercase;}
+#showcase ul li a:hover strong{display:none;}
+
+
+/* Homepage
+---------------------------------------------------------------------------------------------------------------*/
+#homepage{display:block; width:100%;}
+
+#services{display:block; margin:0; padding:0;}
+#services::after{display:block; visibility:hidden; height:65px; clear:both; content:"";}
+#services ul, #services img, #services h2, #services p{display:block; margin:0; padding:0; list-style:none;}
+#services ul li{display:inline-block; float:left; width:225px; margin:0 0 0 20px; padding:0; text-align:center;}
+#services ul li:first-child{margin-left:0;}
+#services h2, #services p{display:block; margin:0; padding:0;}
+#services h2{margin-bottom:25px;}
+#services a{display:block; padding:160px 20px 20px 20px;}
+#services a h2{font-size:32px;}
+#services a:hover, #services a:hover h2{}
+#services a.service{background-position:0 0; background-repeat:no-repeat;}
+#services a.s-1{background-image:url("images/icons/icon-1.png"); background-position:-185px 20px;}
+#services a.s-1:hover{background-position:46px 20px;}
+#services a.s-2{background-image:url("images/icons/icon-2.png"); background-position:-180px 20px;}
+#services a.s-2:hover{background-position:51px 20px;}
+#services a.s-3{background-image:url("images/icons/icon-3.png"); background-position:-180px 20px;}
+#services a.s-3:hover{background-position:51px 20px;}
+#services a.s-4{background-image:url("images/icons/icon-4.png"); background-position:-170px 20px;}
+#services a.s-4:hover{background-position:61px 20px;}
+
+
+/* Group CSS3 Attributes
+---------------------------------------------------------------------------------------------------------------*/
+#header nav ul li a, #header nav ul li ul li a, #slider_content footer a, #showcase h2 span, #content, .sidebar, #comments input, #comments textarea, #comments button, #footer input, #footer textarea, #footer button{border-radius:10px;}
+
+#showcase ul li:nth-child(3n+1){margin-left:0;}
+#showcase ul li a:hover{-webkit-transition:border-color 400ms ease-in; -moz-transition:border-color 400ms ease-in; -ms-transition:border-color 400ms ease-in; -o-transition:border-color 400ms ease-in; transition:border-color 400ms ease-in;}
+
+#services a:hover, #services a:hover h2{-webkit-transition:background-color 400ms ease-in; -moz-transition:background-color 400ms ease-in; -ms-transition:background-color 400ms ease-in; -o-transition:background-color 400ms ease-in; transition:background-color 400ms ease-in;}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
+/* Colours
+---------------------------------------------------------------------------------------------------------------*/
+
+body{color:#979797; background:url("images/bbg.jpg") top center no-repeat fixed #2B2B2B; background-size:cover;}
+
+.imgholder, .imgl, .imgr{border-color:#D6D6D6;}
+
+/* Rows */
+.wrapper a{color:#76C38F; background-color:transparent;}
+.row1{color:#979797; border-color:#76C38F;}
+.row2, .row2 a{}
+.row3{color:#979797; background-color:#303030; border-color:#000000;}
+.row3 a{color:#76C38F; background-color:#303030;}
+.row4{border-color:#3A3A3A;}
+.row4, .row4 a{color:#979797; background-color:#2B2B2B;}
+.row1, #content, .sidebar{background-color:hsla(0,0%,0%,.6);}
+
+/* Header */
+#header #logo h1 a{color:#FFFFFF; background-color:transparent;}
+
+/* Content Area */
+#comments li.comment_odd{color:#666666; background-color:#F7F7F7;}
+#comments li.comment_odd a{color:#76C38F; background-color:#F7F7F7;}
+#comments li.comment_even{color:#666666; background-color:#E8E8E8;}
+#comments li.comment_even a{color:#76C38F; background-color:#E8E8E8;}
+#comments figure{border:1px solid #DEDACB;}
+
+.sidebar h2{border-bottom:2px solid #666666;}
+
+/* Footer */
+#footer nav ul li{border-bottom:1px solid #404040;}
+#footer nav ul li a{background-image:url("images/arrow.gif");}
+#footer figure.imgholder{border-color:#555555;}
+
+/* Navigation */
+#header nav ul li a:link, #header nav ul li a:visited, #header nav ul li a:hover{color:#FFFFFF; background-color:transparent;}
+#header nav ul li a:hover, #header nav ul li.active a{color:#FFFFFF; background-color:#76C38F;}
+#header nav ul li ul li a:link, #header nav ul li ul li a:visited{color:#FFFFFF; background-color:#000000;}
+#header nav ul li ul li a:hover{color:#FFFFFF; background-color:#76C38F;}
+
+.sidebar nav a{color:#979797; background-image:url("images/file.gif"); background-color:transparent; border-bottom:1px solid #666666;}
+.sidebar nav a:hover{color:#76C38F; background-color:#666666;}
+.sidebar nav ul ul a, .sidebar nav ul ul ul a, .sidebar nav ul ul ul ul a, .sidebar nav ul ul ul ul ul a{background-image:url("images/black_file.gif"); background-color:transparent;}
+
+/* Forms */
+#comments form input, #comments form textarea{border:1px solid #CCCCCC;}
+#comments form #submit, #comments form #reset{color:#666666; background-color:#F7F7F7;}
+
+#footer input, #footer textarea{color:#979797; background-color:#222222;}
+#footer button{color:#FFFFFF; background-color:#76C38F;}
+
+/* Tables */
+table, table thead th, table tbody td{border:1px solid #CCCCCC;}
+table thead th{color:#FFFFFF; background-color:#666666;}
+table tbody td{border-width:0 1px;}
+table tbody tr.light{color:#666666; background-color:#F7F7F7;}
+table tbody tr.dark{color:#666666; background-color:#E8E8E8;}
+
+/* Gallery */
+#showcase h2::before{border-top:3px solid #303030;}
+#showcase h2 span{color:#FFFFFF; background-color:#303030;}
+#showcase ul li a{color:#FFFFFF; background-color:transparent; border:5px solid #FFFFFF;}
+#showcase ul li figure a strong{background-color:hsla(0,0%,0%,.5);}
+#showcase ul li a:hover{border-color:hsla(139,39%,61%,.5);}
+
+/* Homepage */
+#homepage #services a{border:1px solid #E4E4E4; color:#979797; background-color:#FFFFFF;}
+#homepage #services a h2{color:#333333; background-color:#FFFFFF;}
+#homepage #services a:hover, #homepage #services a:hover h2{color:#FFFFFF; background-color:#76C38F; border-color:#76C38F;}
+
+/* Slider */
+#slider h1, #slider h2, #slider h3, #slider h4, #slider h5, #slider h6{color:#FFFFFF; background-color:transparent;}
+#slider_content ul li figure figcaption footer a{color:#FFFFFF; background-color:#76C38F;}
+#featured-item-prev, #featured-item-next{background-image:url("images/carousel/prev_next.png"); background-color:transparent;}

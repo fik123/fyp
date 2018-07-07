@@ -25,10 +25,12 @@
 		        <tr>
 		            <th>#</th>
 		            <th>Item</th>
-		            <th>Qty</th>
-		            <th>Price</th>
+		            {{-- <th>Qty</th> --}}
+		            {{-- <th>Price</th> --}}
 		            <th>Avg.Time</th>
-		            <th>Total</th>
+		            <th>Progress</th>
+		            <th>Status</th>
+		            {{-- <th>Total</th> --}}
 		        </tr>
 		    </thead>
 		  <!--Table head-->
@@ -39,10 +41,12 @@
 		        <tr>
 		            <th scope="row">{{$order->id}}</th>
 		            <td>{{$order->menu->name}}</td>
-		            <td>1</td>
-		            <td>{{$order->menu->price}}</td>
+		            {{-- <td>1</td> --}}
+		            {{-- <td>{{$order->menu->price}}</td> --}}
 		            <td>{{$order->menu->time_taken}}</td>
-		            <td>{{$order->totalpriceofthisorder}}</td>
+		            <td></td>
+		            <td>{{$order->status}}</td>
+		            {{-- <td>{{$order->totalpriceofthisorder}}</td> --}}
 		        </tr>
 		        @endforeach
 		        <tr>

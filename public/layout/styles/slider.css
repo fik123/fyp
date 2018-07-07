@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*
+Template Name: The Modernist
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+File: Slider CSS
+*/
+
+#slider{display:block; position:relative; width:860px; height:430px; margin:0 auto; padding:0 50px 40px 50px; overflow:hidden; line-height:1.6em;}
+#slider::after{display:block; visibility:hidden; height:0; clear:both; content:"";}
+#slider a, #slider ul, #slider img{margin:0; padding:0; max-width:none; border:none; outline:none; list-style:none; text-decoration:none;}
+#slider h1, #slider h2, #slider h3, #slider h4, #slider h5, #slider h6{margin:0 0 20px 0; padding:0; font-size:46px; text-transform:none;}
+
+/* ----------------------------------------------Start Carousel-------------------------------------*/
+
+#slider_content, #slider_content li{display:block; width:860px; height:430px; margin:0; padding:0; list-style:none; overflow:hidden;}
+#slider_content li{position:relative;}
+
+/* ----------------------------------------------Carousel Content-------------------------------------*/
+
+#slider_content ul li figure img, #slider_content ul li figure .grayscale_wrapper{display:block; position:relative; float:right;}
+
+#slider_content ul li figure figcaption{display:block; float:left; width:325px; margin:80px 0 0 0; padding:0; overflow:hidden;}
+#slider_content ul li figure figcaption p{margin:0 0 20px 0; padding:0;}
+#slider_content ul li figure figcaption footer{}
+#slider_content ul li figure figcaption footer a{display:inline-block; padding:5px 10px;}
+
+/* ----------------------------------------------Previous & Next Buttons-------------------------------------*/
+
+#featured-item-prev, #featured-item-next{display:block; position:absolute; top:201px; width:15px; height:28px; background-position:0 0; background-repeat:no-repeat; cursor:pointer; text-indent:-9999px;}
+#featured-item-prev{background-position:0 100%; left:0;}
+#featured-item-next{right:0;}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+/* ---------------DO NOT CHANGE THE FOLLOWING CODE OTHERWISE THE FEATURED PANEL WONT WORK-------------------- */
+/* ---------------------------------------------------------------------------------------------------------- */
+
+/*
+Product Name: jCarousel
+Author: Jan Sorgalla
+Author URI: http://sorgalla.com/jcarousel/
+Licence: Dual licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> and <a href="http://www.opensource.org/licenses/gpl-license.php">GPL</a> licenses.
+*/
+
+/* This is the visible area of you carousel. Set a width here to define how much items are visible. The width can be either fixed in px or flexible in %. Position must be relative! */
+.jcarousel{position:relative; overflow:hidden;}
+
+/* This is the container of the carousel items. You must ensure that the position is relative or absolute and that the width is big enough to contain all items. */
+.jcarousel ul{width:500%; white-space:nowrap; overflow:hidden; position:relative; margin:0; padding:0; list-style:none;}
+
+/* These are the item elements. jCarousel works best, if the items have a fixed width and height (but it's not required). */
+.jcarousel li{float:left; white-space:normal;}
