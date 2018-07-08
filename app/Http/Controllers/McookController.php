@@ -108,28 +108,40 @@ class McookController extends Controller
         }
         switch ($param['toupdate']) {
             case 'order':
-                foreach ($param['orderids'] as $key => $value) {
-                    if (!in_array($value, $currentmcookorders)) {
-                        array_push($currentmcookorders,$value);
+                if ($mcook->status != 'ended') {
+                    foreach ($param['orderids'] as $key => $value) {
+                        if (!in_array($value, $currentmcookorders)) {
+                            array_push($currentmcookorders,$value);
+                        }
                     }
+                    // modify order status
+                    foreach ($currentmcookorders as $key => $value) {
+                        $order = Order::find($value);
+                        $order->status = 'mcooking';
+                        $order->save();
+                    }
+                    // modify mcook status
+                    $mcook->orders = implode(",", $currentmcookorders); 
                 }
-                // modify order status
-                foreach ($currentmcookorders as $key => $value) {
-                    $order = Order::find($value);
-                    $order->status = 'mcooking';
-                    $order->save();
-                }
-                // modify mcook status
-                $mcook->orders = implode(",", $currentmcookorders); 
+
                 break;
             
             default:
                 $mcook->status = $param['value'];
-                foreach ($currentmcookorders as $key => $order) {
-                    $order = Order::find($order);
-                    $order->status = 'rserve';
-                    $order->save();
+                if ($mcook->status == 'served') {
+                    foreach ($currentmcookorders as $key => $order) {
+                        $order = Order::find($order);
+                        $order->status = 'rserve';
+                        $order->save();
+                    }
+                }else if ($mcook->status == 'started') {
+                    foreach ($currentmcookorders as $key => $order) {
+                        $order = Order::find($order);
+                        $order->status = 'mstartcooking';
+                        $order->save();
+                    }
                 }
+                
                 break;
         }
         

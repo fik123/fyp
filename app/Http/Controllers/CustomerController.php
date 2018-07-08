@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Order;
+use App\Mcook;
 class CustomerController extends Controller
 {
     /**
@@ -40,6 +41,42 @@ class CustomerController extends Controller
         
         $tableno = $tableid;
         return view('customer.option',compact('yourorderno','tableno'));
+    }
+    public function orders($orderno)
+    {
+        $allactivemcooking = Mcook::all();
+        $orders = Order::where('orderno','=',$orderno)->get();
+        $ordersmenu = [];
+        $ordercookingtime = [];
+        foreach ($orders as $key => $order) {
+            $ordersmenu[$order->id] = $order->menu;
+
+            if ($order->status == 'cooking') {
+                $ordercookingtime[$order->id] = $order->menu->time_taken;
+            }elseif($order->status == 'mstartcooking'){
+
+                foreach ($allactivemcooking as $key => $activemcooking) {
+                    $mcookorderids = explode(',', $activemcooking->orders);
+                    if (in_array($order->id, $mcookorderids)) {
+                        $ordercookingtime[$order->id] = $activemcooking->cooking_time;        
+                    }
+                }
+                
+            }else{
+                $ordercookingtime[$order->id] = $order->menu->time_taken;
+            }
+            
+        }
+            $response = [
+                'status' => 'success',
+                'msg'   => 'all my orders',
+                'orders' => $orders,
+                'ordersmenu' => $ordersmenu,
+                'ordercookingtime' => $ordercookingtime,
+            ];
+        
+        
+        return response()->json($response); 
     }
     	
     	
