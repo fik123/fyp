@@ -36,7 +36,7 @@
         <li>
           <figure><a href="#"><img src="images/slider/1.png" alt=""></a>
             <figcaption>
-              <h2>Cursus penati saccum nulla.</h2>
+              <h2>A Time Efficiency System.</h2>
               <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat adipiscinia pellentum leo&hellip;</p>
               <footer><a href="#">Read More Here &raquo;</a></footer>
             </figcaption>
@@ -45,7 +45,7 @@
         <li>
           <figure><a href="#"><img src="images/slider/2.png" alt=""></a>
             <figcaption>
-              <h2>Cursus penati saccum nulla.</h2>
+              <h2>Enlighten Customers on Order Status</h2>
               <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat adipiscinia pellentum leo&hellip;</p>
               <footer><a href="#">Read More Here &raquo;</a></footer>
             </figcaption>
@@ -54,7 +54,7 @@
         <li>
           <figure><a href="#"><img src="images/slider/3.png" alt=""></a>
             <figcaption>
-              <h2>Cursus penati saccum nulla.</h2>
+              <h2>Great Retaurant Management</h2>
               <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat adipiscinia pellentum leo&hellip;</p>
               <footer><a href="#">Read More Here &raquo;</a></footer>
             </figcaption>
