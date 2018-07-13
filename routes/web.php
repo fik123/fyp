@@ -29,6 +29,7 @@ Route::put('bulkorder/{order}','OrderController@bulkupdate')->name('order.bulkup
 Route::delete('order/{order}','OrderController@destroy')->name('order.destroy');
 Route::get('order/{order}/{tableno}','OrderController@show')->name('order.show');//s
 Route::resource('mcook','McookController');
+// Route::put('customermcook/{mcook}','McookController@joinmass')->name('mcook.joinmass');
 
 // admin routing
 Route::get('admintable','AdminController@alltable')->name('admin.table');

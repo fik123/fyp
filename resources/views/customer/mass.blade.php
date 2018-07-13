@@ -26,18 +26,19 @@
 @push('scripts')
 <script>
 window.itemsincart = [];
-$(".joinmass").on('click',function() {
-    // if (!_.find(itemsincart, ['menu', $(this).data('menu')])) {
-        // var idx = _.findLastIndex(itemsincart);
-        itemsincart.push({
-       "menu":$(this).data('menu'),
-       "name":$(this).data('name'),
-       "price":$(this).data('price'),
-       "avgtime":$(this).data('avgtime'),
-       "qty": 1
-       });
-    // }
-    console.log(itemsincart);
+// watcher join masscook
+$('#masslist').on('click', '.joinmass', function() {
+    // console.log("watcher",$('#masslist .joinmass').data("mcooks"));
+    let mcookid = $('#masslist .joinmass').data("mcooks");
+    console.log("mcookid",mcookid);
+    itemsincart.push({
+        "menu":$('#masslist .joinmass').data("menu"),
+        "name":$('#masslist .joinmass').data('name'),
+        "price":$('#masslist .joinmass').data('price'),
+        "avgtime":$('#masslist .joinmass').data('avgtime'),
+        "qty": 1
+    });
+    console.log("itemcard",itemsincart);
     $.ajax({
         type: 'POST',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -54,6 +55,8 @@ $(".joinmass").on('click',function() {
         }
     }); 
 });
+// end watcher
+
 window.setInterval(function(){
 
 	
@@ -81,7 +84,7 @@ window.setInterval(function(){
 					mcooklist += '		<h4 class="card-title">'+data.mcooksmenu[data.allmcooks[i].id].name+' ~ <span>('+currentmcparticipant.length +'/' +data.allmcooks[i].qty  +')</span></h4>';
 					mcooklist += '		<p class="card-text" id="waitingtime'+data.allmcooks[i].id+'"></p>';
 					mcooklist += '		<div class="flex-row">';
-					mcooklist += '			<button class="btn btn-default joinmass" data-menu="'+data.mcooksmenu[data.allmcooks[i].id].id+'" data-name="'+data.mcooksmenu[data.allmcooks[i].id].name+'" data-price="'+data.mcooksmenu[data.allmcooks[i].id].price+'" data-avgtime="">joinbtn</button>';
+					mcooklist += '			<button class="btn btn-default joinmass" data-mcooks="'+data.allmcooks[i].id+'" data-menu="'+data.mcooksmenu[data.allmcooks[i].id].id+'" data-name="'+data.mcooksmenu[data.allmcooks[i].id].name+'" data-price="'+data.mcooksmenu[data.allmcooks[i].id].price+'" data-avgtime="">joinbtn</button>';
 					mcooklist += '		</div>';
                     mcooklist += '      <div class="flex-row">';
                     mcooklist += '          <p> Status: '+translatestatus(data.allmcooks[i].status) +'</p>';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Menu;
 use App\Table;
+use App\Mcook;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -91,7 +92,10 @@ class OrderController extends Controller
     public function store(Request $request,$tableno)
     {
         $statusincomplete = 0;
+
         $items = $request->all();
+        $orderlist = [];
+
         $lastorderofthattable = Table::find($tableno)->orders->last();
         $lastorder = Order::latest('orderno')->first();
 
@@ -119,11 +123,46 @@ class OrderController extends Controller
                 }
                 
                 if ($neworder->save()) {
+                    $orderlist[$neworder->id] = $neworder->menu_id;
                     $menusaved++;  
                     $lastorderno = $neworder->orderno;
                 }
             }
             if ($menusaved == $totalmenu) {
+                // check for mass cook before respond
+                $activemasscooks = Mcook::where('status','initialized')->get();
+                // dd("im here",$activemasscooks);
+                if (is_null($activemasscooks) || empty($activemasscooks)) {
+                    
+                }else{
+                    foreach ($activemasscooks as $key => $activemasscook) {
+                        $activemasscookorders = explode(',',$activemasscook->orders);  
+                        if ($activemasscook->qty > count($activemasscookorders)) {
+                            foreach ($orderlist as $oid => $mid) {
+
+                                if ($activemasscook->menu_id == $mid) {
+                                    if (!in_array($oid, $activemasscook->toArray())) {
+                                        array_push($activemasscookorders,$oid);
+                                    }
+                                }
+                            }
+                            // dd($activemasscookorders);
+                            // modify order status
+                            foreach ($activemasscookorders as $key => $oidu) {
+                                $order = Order::find($oidu);
+                                if ($order->status != 'mcooking') {
+                                    $order->status = 'mcooking';
+                                    $order->save();
+                                }
+                            }
+                            // modify mcook status
+                            $activemasscook->orders = implode(",", $activemasscookorders); 
+                            $activemasscook->save();
+                        }         
+                    }
+                }
+                
+                // end checking
                 $response = [
                     'status' => 'success',
                     'msg'   => 'successfully ordered',
@@ -137,8 +176,7 @@ class OrderController extends Controller
                     'input' => $request->all(),
                 ];
             }
-            
-            return response()->json($response); 
+            return response()->json($response);     
         }else{
             $totalmenu = count($items);
             $menusaved = 0;
@@ -153,11 +191,44 @@ class OrderController extends Controller
                 $neworder->orderno = (is_null($lastorder))? 1:$lastorder->orderno+1;
                 
                 if ($neworder->save()) {
+                    $orderlist[$neworder->id] = $neworder->menu_id;
                     $menusaved++;  
                     $lastorderno = $neworder->orderno;
                 }
             }
             if ($menusaved == $totalmenu) {
+                $activemasscooks = Mcook::where('status','initialized')->get();
+                
+                if (is_null($activemasscooks) || empty($activemasscooks)) {
+                    
+                }else{
+                    foreach ($activemasscooks as $key => $activemasscook) {
+                        $activemasscookorders = explode(',',$activemasscook->orders);  
+                        if ($activemasscook->qty > count($activemasscookorders)) {
+                            foreach ($orderlist as $oid => $mid) {
+                                if ($activemasscook->menu_id == $mid) {
+                                    if (!in_array($oid, $activemasscook->toArray())) {
+                                        array_push($activemasscookorders,$oid);
+                                    }
+
+                                }
+                                
+                            }
+                            // modify order status
+                            foreach ($activemasscookorders as $key => $oidu) {
+                                $order = Order::find($oidu);
+                                if ($order->status != 'mcooking') {
+                                    $order->status = 'mcooking';
+                                    $order->save();
+                                }
+                                
+                            }
+                            // modify mcook status
+                            $activemasscook->orders = implode(",", $activemasscookorders); 
+                            $activemasscook->save();
+                        }         
+                    }
+                }
                 $response = [
                     'status' => 'success',
                     'msg'   => 'successfully ordered',
