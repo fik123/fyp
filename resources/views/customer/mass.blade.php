@@ -78,13 +78,17 @@ window.setInterval(function(){
 				var remtime = (data.allmcooks[i].waiting_time - duration._milliseconds - 5000)/1000;
 				var currentmcparticipant = data.allmcooks[i].orders.split(",");
 
-				if (data.allmcooks[i].qty > currentmcparticipant.length) {
+				
 					mcooklist += '<div class="row">';
 					mcooklist += '	<div class="card card-body">';
 					mcooklist += '		<h4 class="card-title">'+data.mcooksmenu[data.allmcooks[i].id].name+' ~ <span>('+currentmcparticipant.length +'/' +data.allmcooks[i].qty  +')</span></h4>';
 					mcooklist += '		<p class="card-text" id="waitingtime'+data.allmcooks[i].id+'"></p>';
 					mcooklist += '		<div class="flex-row">';
+                    if (data.allmcooks[i].qty > currentmcparticipant.length) {
 					mcooklist += '			<button class="btn btn-default joinmass" data-mcooks="'+data.allmcooks[i].id+'" data-menu="'+data.mcooksmenu[data.allmcooks[i].id].id+'" data-name="'+data.mcooksmenu[data.allmcooks[i].id].name+'" data-price="'+data.mcooksmenu[data.allmcooks[i].id].price+'" data-avgtime="">joinbtn</button>';
+                    }else{
+                    mcooklist += '<button class="btn btn-brown"> FULL </button>';
+                    }
 					mcooklist += '		</div>';
                     mcooklist += '      <div class="flex-row">';
                     mcooklist += '          <p> Status: '+translatestatus(data.allmcooks[i].status) +'</p>';
@@ -94,7 +98,7 @@ window.setInterval(function(){
 					
 					$("#waitingtime"+data.allmcooks[i].id).text(remtime+"s");
 					console.log(remtime);
-				}
+				
             }
 			$("#masslist").append(mcooklist);
         } 
