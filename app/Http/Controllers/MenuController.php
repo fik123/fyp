@@ -37,11 +37,37 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $parameter = $request->all();
+        
+        $fields = [
+                'name' => $parameter['name'],
+                'price' => $parameter['price'],
+                'description' => $parameter['description'],
+                'time_taken' => $parameter['time_taken']*1000,
+            ];
         $menubaru = new Menu;
-        $menubaru->name = $parameter['name'];
-        $menubaru->price = $parameter['price'];
-        $menubaru->description = $parameter['description'];
-        $menubaru->time_taken = $parameter['time_taken']*1000;
+        $menubaru = $menubaru->create($fields);
+        // $menubaru->name = $parameter['name'];
+        // $menubaru->price = $parameter['price'];
+        // $menubaru->description = $parameter['description'];
+        // $menubaru->time_taken = $parameter['time_taken']*1000;
+        $photo = $parameter['menu_img'];
+        // $attachment = $request->file('attachment');
+
+        // // photo
+        if (!is_null($photo)) {
+        //     $imageName = Null;
+        // }else{
+            $imgextension = $photo->getClientOriginalExtension();
+            
+            $oldmask = umask(0);
+            mkdir('public/storage/cim/'.$menubaru->id, 0777, true);
+            umask($oldmask);
+            // $imageName = $newpassenger->id . '_' . rand(11111,99999) . '.' . $extension;
+            $imageName = \Carbon\Carbon::now()->timestamp . '.' . $imgextension;
+            $photo->move(
+                base_path() . '/public/cim/'.$menubaru->id, $imageName
+            );
+        }
         $menubaru->save();
         return redirect()->back()->withSuccess('New Menu has been Added');
     }

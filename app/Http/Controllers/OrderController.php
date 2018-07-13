@@ -32,7 +32,7 @@ class OrderController extends Controller
     }
     public function indexcooking()
     {
-        $allorders = Order::where('status','cooking')->get();
+        $allorders = Order::whereIn('status',['cooking','ordered'])->get();
         $ordersmenu = [];
         $orderstable = [];
         foreach ($allorders as $key => $order) {
@@ -55,7 +55,20 @@ class OrderController extends Controller
     public function create($tableno)
     {
         $menus = Menu::all()->groupBy('type');
-        return view('customer.menu',compact('menus','tableno'));
+        
+        foreach ($menus as $type => $typedmenu) {
+            foreach ($typedmenu as $key => $value) {
+                $dir    = public_path() . '/cim/'.$value->id;
+                if (is_dir($dir)) {
+                    $value->img = '/cim/'.$value->id.'/'.scandir($dir)[2];
+                }else{
+                    $value->img = false;   
+                }
+            }
+        }
+        // dd($menus);
+        $tid = Table::find($tableno)->label;
+        return view('customer.menu',compact('menus','tableno','tid'));
     }
 
     /**
@@ -65,7 +78,8 @@ class OrderController extends Controller
      */
     public function masscreate($tableno)
     {
-        return view('customer.mass',compact('tableno'));
+        $tid = Table::find($tableno)->label;
+        return view('customer.mass',compact('tableno','tid'));
     }
 
     /**
@@ -175,7 +189,8 @@ class OrderController extends Controller
         foreach ($orders as $key => $order) {
             $order->totalpriceofthisorder = 1*$order->menu->price;
         }
-        return view('customer.myorder',compact('orders','tableno'));
+        $tid = Table::find($tableno)->label;
+        return view('customer.myorder',compact('orders','tableno','tid'));
     }
 
     /**

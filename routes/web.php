@@ -22,12 +22,12 @@ Route::resource('table','TableController');
 Route::resource('menu','MenuController');
 Route::get('order','OrderController@index')->name('order.index');
 Route::post('order/{tableno}','OrderController@store')->name('order.store');
-Route::get('order/create/{tableno}','OrderController@create')->name('order.create');
-Route::get('ordermass/{tableno}','OrderController@masscreate')->name('order.mass');
+Route::get('order/create/{tableno}','OrderController@create')->name('order.create');//s
+Route::get('ordermass/{tableno}','OrderController@masscreate')->name('order.mass');//s
 Route::put('order/{order}','OrderController@update')->name('order.update');
 Route::put('bulkorder/{order}','OrderController@bulkupdate')->name('order.bulkupdate');
 Route::delete('order/{order}','OrderController@destroy')->name('order.destroy');
-Route::get('order/{order}/{tableno}','OrderController@show')->name('order.show');
+Route::get('order/{order}/{tableno}','OrderController@show')->name('order.show');//s
 Route::resource('mcook','McookController');
 
 // admin routing

@@ -30,6 +30,7 @@ class CustomerController extends Controller
         
     public function option (Request $request){
         $parameters = $request->all();
+        $tid = $parameters['tid'];
         $tableid = DB::table('tables')->where('label', 'like', '%' .$parameters['tid']. '%')->first()->id;
         $latestorderofthattable = Order::where('table_id',$tableid)->latest()->first();
         if ($latestorderofthattable) {
@@ -40,7 +41,7 @@ class CustomerController extends Controller
         }
         
         $tableno = $tableid;
-        return view('customer.option',compact('yourorderno','tableno'));
+        return view('customer.option',compact('yourorderno','tableno','tid'));
     }
     public function orders($orderno)
     {

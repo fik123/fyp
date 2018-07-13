@@ -26,6 +26,16 @@ class AdminController extends Controller
         
     public function allmenu (){
         $menus = Menu::all();
+
+        foreach ($menus as $key => $value) {
+            $dir    = public_path() . '/cim/'.$value->id;
+            if (is_dir($dir)) {
+                $value->img = '/cim/'.$value->id.'/'.scandir($dir)[2];
+            }else{
+                $value->img = false;   
+            }
+        }
+        // dd($menus);
         return view('menu_admin',compact('menus'));
     }
 

@@ -22,6 +22,7 @@
 		</div>
 		<p>Total : {{array_sum(array_column($orders->toArray(), 'totalpriceofthisorder'))}}</p>
 		<a href="{{route('order.create',['tableno'=>$tableno])}}" class="btn btn-primary">Go to Menu</a>
+		<a href="{{route('customer.option',['tid'=>$tid])}}" class="btn btn-primary">Go to Option</a>
     </div>
 </div>
 <!--/.Panel-->

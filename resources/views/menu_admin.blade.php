@@ -18,7 +18,7 @@
 
 			  <!-- Card image -->
 			  <div class="view overlay">
-			    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+			    <img class="card-img-top" style="height:240px" src="@if($menu->img){{$menu->img}}@else https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg @endif" alt="Card image cap">
 			    <a>
 			      <div class="mask rgba-white-slight"></div>
 			    </a>
@@ -66,7 +66,7 @@
             </div>
             <!--Body-->
             <div class="modal-body">
-				{!! Form::open(['route' => 'menu.store']) !!}
+				{!! Form::open(['route' => 'menu.store','files' => true]) !!}
                 <!-- Material input name -->
                 <div class="md-form form-sm">
                     <i class="fa fa-envelope prefix"></i>
@@ -80,6 +80,16 @@
                     <textarea type="text" id="menudescription" name="description" class="md-textarea form-control"></textarea>
                     <label for="menudescription">Description</label>
                 </div>
+
+                <div class="file-field">
+			        <div class="btn btn-primary btn-sm float-left">
+			            <span>Choose Menu Background (.png/.jpg)</span>
+			            <input type="file" name="menu_img">
+			        </div>
+			        <div class="file-path-wrapper">
+			           <input name="menu_img_name" class="file-path validate" type="text" placeholder="Upload your file">
+			        </div>
+			    </div>
 
 				<div class="row">
 

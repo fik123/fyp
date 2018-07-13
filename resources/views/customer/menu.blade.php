@@ -3,6 +3,7 @@
 <!-- Nav tabs -->
 <div class="row">
     <div class="col-md-3">
+        <a href="{{route('customer.option',['tid'=>$tid])}}" class="btn btn-default btn-block" style="margin:2%">Go to Option</a>
         <ul class="nav  md-pills pills-primary flex-column" role="tablist">
             <?php 
             $i = 1;
@@ -38,7 +39,7 @@
 
                                   <!-- Card image -->
                                   <div class="view overlay">
-                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                                    <img class="card-img-top" style="height:240px" src="@if($menu->img){{$menu->img}}@else https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg @endif" alt="Card image cap">
                                     <a>
                                       <div class="mask rgba-white-slight"></div>
                                     </a>
