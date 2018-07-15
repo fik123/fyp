@@ -154,6 +154,9 @@ function translatestatus(exp) {
         case 'ordered':
             return "Waiting for chef to cook";
             break;
+        case 'cooking':
+            return "Cooking is cooking";
+            break;
         case 'rserve':
             return "Cooking has ended, waiter is serving";
             break;
