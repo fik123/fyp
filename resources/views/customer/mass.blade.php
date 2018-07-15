@@ -151,6 +151,15 @@ function translatestatus(exp) {
         case 'ended':
             return "Cooking has ended";
             break;
+        case 'ordered':
+            return "Waiting for chef to cook";
+            break;
+        case 'rserve':
+            return "Cooking has ended, waiter is serving";
+            break;
+        case 'served':
+            return "Received";
+            break;
         default:
             return "Chef main mobile legend";
     }
