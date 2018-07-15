@@ -60,7 +60,7 @@ class MenuController extends Controller
             $imgextension = $photo->getClientOriginalExtension();
             
             $oldmask = umask(0);
-            mkdir('public/storage/cim/'.$menubaru->id, 0755, true);
+            mkdir('public/storage/cim/'.$menubaru->id, 0777, true);
             umask($oldmask);
             // $imageName = $newpassenger->id . '_' . rand(11111,99999) . '.' . $extension;
             $imageName = \Carbon\Carbon::now()->timestamp . '.' . $imgextension;
