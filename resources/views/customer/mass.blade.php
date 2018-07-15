@@ -155,7 +155,7 @@ function translatestatus(exp) {
             return "Waiting for chef to cook";
             break;
         case 'cooking':
-            return "Cooking is cooking";
+            return "Chef is cooking";
             break;
         case 'rserve':
             return "Cooking has ended, waiter is serving";
