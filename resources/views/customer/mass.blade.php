@@ -85,7 +85,7 @@ window.setInterval(function(){
 					mcooklist += '		<p class="card-text" id="waitingtime'+data.allmcooks[i].id+'"></p>';
 					mcooklist += '		<div class="flex-row">';
                     if (data.allmcooks[i].qty > currentmcparticipant.length) {
-					mcooklist += '			<button class="btn btn-default joinmass" data-mcooks="'+data.allmcooks[i].id+'" data-menu="'+data.mcooksmenu[data.allmcooks[i].id].id+'" data-name="'+data.mcooksmenu[data.allmcooks[i].id].name+'" data-price="'+data.mcooksmenu[data.allmcooks[i].id].price+'" data-avgtime="">joinbtn</button>';
+					mcooklist += '			<button class="btn btn-default joinmass" data-mcooks="'+data.allmcooks[i].id+'" data-menu="'+data.mcooksmenu[data.allmcooks[i].id].id+'" data-name="'+data.mcooksmenu[data.allmcooks[i].id].name+'" data-price="'+data.mcooksmenu[data.allmcooks[i].id].price+'" data-avgtime="">Join</button>';
                     }else{
                     mcooklist += '<button class="btn btn-brown"> FULL </button>';
                     }
@@ -124,10 +124,10 @@ window.setInterval(function(){
                     mcooklist += '      <h4 class="card-title">'+data.ordersmenu[data.orders[i].id].name+'</h4>';
                     mcooklist += '      <p class="card-text" id="waitingtime'+data.orders[i].id+'"></p>';
                     mcooklist += '      <div class="flex-row">';
-                    mcooklist += '          <a class="card-link" data-menu="'+data.ordersmenu[data.orders[i].id].id+'" data-name="'+data.ordersmenu[data.orders[i].id].name+'" data-price="'+data.ordersmenu[data.orders[i].id].price+'" data-avgtime="">joinbtn</a>';
+                    // mcooklist += '          <a class="card-link" data-menu="'+data.ordersmenu[data.orders[i].id].id+'" data-name="'+data.ordersmenu[data.orders[i].id].name+'" data-price="'+data.ordersmenu[data.orders[i].id].price+'" data-avgtime="">joinbtn</a>';
                     mcooklist += '      </div>';
                     mcooklist += '      <div class="flex-row">';
-                    mcooklist += '          <p> '+data.orders[i].status +'</p>';
+                    mcooklist += '          <p> Status: '+translatestatus(data.orders[i].status )+'</p>';
                     mcooklist += '      </div>';
                     mcooklist += '  </div>';
                     mcooklist += '</div>';
@@ -143,13 +143,25 @@ window.setInterval(function(){
 function translatestatus(exp) {
     switch(exp) {
         case 'initialized':
-            return "Chef menunggu";
+            return "Chef is waiting for orders";
             break;
         case 'started':
-            return "Chef palat";
+            return "Chef has started cooking";
             break;
         case 'ended':
-            return "Chef mmg palat";
+            return "Cooking has ended";
+            break;
+        case 'ordered':
+            return "Waiting for chef to cook";
+            break;
+        case 'cooking':
+            return "Chef is cooking";
+            break;
+        case 'rserve':
+            return "Cooking has ended, waiter is serving";
+            break;
+        case 'served':
+            return "Received";
             break;
         default:
             return "Chef main mobile legend";
