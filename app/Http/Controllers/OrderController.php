@@ -33,7 +33,7 @@ class OrderController extends Controller
     }
     public function indexcooking()
     {
-        $allorders = Order::whereIn('status',['cooking','ordered'])->get();
+        $allorders = Order::where('status','cooking')->get();
         $ordersmenu = [];
         $orderstable = [];
         foreach ($allorders as $key => $order) {

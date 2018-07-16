@@ -26,7 +26,7 @@
 			        <br>
 
 					<div class="cooked">
-						<div class="row">
+						{{-- <div class="row">
 							<div class="card kikiwidth">
 								<div class="card-body">
 									<div class="row">
@@ -44,7 +44,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 			    </div>
 			    <!--/.Panel 4-->
@@ -54,7 +54,7 @@
 
 			        <button type="button" class="btn btn-outline-info waves-effect" data-toggle="modal" data-target="#createmcook">+ New</button>
 					<div class="mcooked">
-						<div class="row">
+						{{-- <div class="row">
 							<div class="card kikiwidth">
 								<div class="card-body">
 									<div class="row">
@@ -73,7 +73,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 			    </div>
 			    <!--/.Panel 1-->
@@ -268,7 +268,7 @@
             contentType: "application/json",
             success: function(data) {
             	// currentorders = data.orders.map(function (dor) { return dor.id });
-            	// console.log(currentorders);
+            	console.log('forcooking',data);
             	$(".cooked").empty();
             	for (var i = data.orders.length - 1; i >= 0; i--) {
             		
